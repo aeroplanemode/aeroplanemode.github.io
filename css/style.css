@@ -88,7 +88,7 @@ nav.open .nav-content span{
   justify-content:space-between;
 }
 .img{
- background-image: url(Images/Background.jpeg);
+ background-image: url("Images/Background.jpeg");
  background-size:cover;
  background-repeat:no-repeat;
  padding: 40px 0 100px;
