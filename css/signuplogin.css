@@ -1,0 +1,177 @@
+.modal-btn {
+  color:#F800FF;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  left: 150px;
+  top: 10px;
+}
+
+#modal-toggle {
+  display: none;
+}
+
+.modal-content,
+.modal-backdrop {
+  opacity: 0;
+  position: fixed;
+  padding: 15px;
+  padding-top: 50px;
+  z-index: -1;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  height: 550px;
+  max-height: 98%;
+  width: 70%;
+  max-width: 600px;
+  text-align: center;
+  transform: translateX(125%);
+}
+
+.modal-backdrop {
+  left: 0;
+  top: 0;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+  transform: scale(0);
+}
+
+#modal-toggle:checked~.modal-backdrop {
+  opacity: 1;
+  background-color:rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  transform: scale(1);
+}
+
+#modal-toggle:checked~.modal-content {
+  opacity: 1;
+  background-color:rgba(204, 204, 204, 0.4);
+  box-shadow: 0px 0px 20px #ccc, inset 0px 0px 20px rgba(204, 204, 204, 0.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  pointer-events: auto;
+  cursor: auto;
+  z-index: 999;
+  transform: translateX(0%);
+}
+
+@media (max-width: 600px) {
+  #modal-toggle:checked~.modal-backdrop {
+    opacity: 0;
+  }
+  
+  .modal-content {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+.modal-close-btn {
+  margin-top: 5px;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.modal-close-btn svg {
+  transition: 0.2s;
+}
+
+.modal-close-btn svg line {
+  stroke-width: 5px;
+  stroke: #01B491;
+}
+
+.modal-close-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+/* BASIC FUNCTIONALITY .tabs */
+  :root{
+      --primary:#01b491;
+      --bg:#f4f6f8;
+      --card:#ffffff;
+      --danger:#e53935;
+      --ok:#2e7d32;
+      --muted:#6b7280;
+    }
+    
+    
+    .card{
+      width:min(600px,92vw);background:var(--card);border-radius:16px;padding:18px 16px 22px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    /* Tabs */
+    .tabs{display:flex;flex-wrap:wrap}
+    .tabs > input[type=radio]{display:none}
+    .tabs > label{
+      flex:1 1 50%;text-align:center;padding:12px 10px;cursor:pointer;border-bottom:4px solid var(--primary);
+      color:var(--primary);font-weight:600;border-radius:12px 12px 0 0;user-select:none;
+    }
+    .tabs > input:checked + label{background:var(--primary);color:#fff}
+    .panel{width:100%;display:none;padding:14px 4px 8px}
+    #tab-login:checked ~ #panel-login,
+    #tab-signup:checked ~ #panel-signup{display:block}
+
+    /* Forms */
+    form{display:flex;flex-direction:column;gap:10px}
+    .row{display:flex;gap:10px}
+    .row > *{flex:1}
+    .field{position:relative}
+    input[type="email"], input[type="password"]{
+      width:100%;padding:12px 42px 12px 12px;border:1.5px solid #cfd8dc;border-radius:10px;font-size:15px;
+      transition:.15s;
+    }
+    input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px #01b49122}
+    .error{border-color:var(--danger)!important;box-shadow:0 0 0 3px #e5393522!important}
+    .ok{border-color:var(--ok)!important;box-shadow:0 0 0 3px #2e7d3222!important}
+
+    /* Eye icon */
+    .eye{
+      position:absolute;right:10px;top:50%;translate:0 -50%;user-select:none;
+      width:28px;height:28px;border-radius:8px;display:grid;place-items:center;border:1px solid #e5e7eb;
+    }
+    .eye:active{scale:.98}
+
+    /* Buttons */
+    .btn{
+      padding:12px;border:none;border-radius:10px;background:linear-gradient(90deg,#56d8e4,#9f01ea,#56d8e4);
+      color:#fff;font-weight:700;cursor:pointer;letter-spacing:.3px
+    }
+    .btn:active{transform:translateY(1px)}
+    .link{color:var(--primary);font-size:14px;cursor:pointer;text-align:center}
+
+    /* Status text */
+    .hint{font-size:13px;color:var(--muted);min-height:18px}
+    .hint.ok{color:var(--ok)}
+    .hint.err{color:var(--danger)}
+
+    /* Shake animation (wrong password) */
+    @keyframes shake{
+      0%{transform:translateX(0)}
+      20%{transform:translateX(-8px)}
+      40%{transform:translateX(8px)}
+      60%{transform:translateX(-6px)}
+      80%{transform:translateX(6px)}
+      100%{transform:translateX(0)}
+    }
+    .shake{animation:shake 0.4s}
+
+    /* Small */
+    @media (max-width:480px){
+      .row{flex-direction:column}
+  }
